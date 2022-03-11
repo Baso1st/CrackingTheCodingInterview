@@ -31,7 +31,7 @@ def binary_search(myStr: str, char):
 
 
 def is_all_unique_bool(myStr: str):
-    """ Uses a boolean array
+    """ Uses a boolean array.
         Assums the string is all lower case ASCII and numbers
         Time Complexity: O(n) or O(c; where c is the length of the charcter set) can be considered O(1)
         Space Complexity: O(len(CharcterSet. Ex: ASCII)) can be considered O(1)
@@ -90,20 +90,20 @@ def is_All_unique_bit(myStr: str):
 # print(end - start)
 
 ######Case3: 
-start = time.time()
+# start = time.time()
 
-for i in range(99999):
-    is_all_unique_bool('mnopqrstuvwxyzabcdefghijkl')
+# for i in range(99999):
+#     is_all_unique_bool('mnopqrstuvwxyzabcdefghijkl')
 
-end = time.time()
-print(end - start)
+# end = time.time()
+# print(end - start)
 
-#####Case4: 
-start = time.time()
+# #####Case4: 
+# start = time.time()
 
-for i in range(99999):
-    is_all_unique_bool('mnopqrstuvwxyzabcdefghijkl')
+# for i in range(99999):
+#     is_all_unique_bool('mnopqrstuvwxyzabcdefghijkl')
 
-end = time.time()
-print(end - start)
+# end = time.time()
+# print(end - start)
 
