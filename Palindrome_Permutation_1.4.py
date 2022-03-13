@@ -59,7 +59,9 @@ def is_perm_of_palindrome_bit(myStr):
     if checker == 0:
         return True
     
-    return math.log(checker, 2).is_integer()
+    # return math.log(checker, 2).is_integer()
+    # A better way to do that is as follow:
+    return (checker & (checker -1)) == 0
 
 
 test_cases = [
@@ -88,4 +90,3 @@ for case in test_cases:
 
     if is_perm_of_palindrome_bit(case[0]) != case[1]:
         print('is_perm_of_palindrome_bit: ' + str(case))
-    pass
