@@ -29,19 +29,19 @@ def is_perm_of_palindrome_hash(myStr: str):
     """
     myStr = myStr.lower().replace(' ', '')
     hashTable = {}
-    odd_found = False
+    odd_counted = 0
     for c in myStr:
         if c in hashTable:
             hashTable[c] += 1
+            if hashTable[c] % 2 == 1:
+                odd_counted += 1
+            else:
+                odd_counted -= 1
         else:
             hashTable[c] = 1
+            odd_counted += 1
     
-    for key in hashTable:
-        if hashTable[key] % 2 == 1:
-            if odd_found: 
-                return False
-            odd_found = True
-    return True
+    return odd_counted <= 1
 
 
 def is_perm_of_palindrome_bit(myStr):
