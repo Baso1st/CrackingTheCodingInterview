@@ -16,6 +16,7 @@ def one_away(first, second):
                 found_difference = True
         return True
 
+    # Insert or remove
     if len(first) < len(second):
         second, first = first, second
 
