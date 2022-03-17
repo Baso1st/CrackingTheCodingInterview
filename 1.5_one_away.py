@@ -5,27 +5,45 @@ def one_away(first, second):
         return True
     if abs(len(first) - len(second)) >= 2:
         return False
+
+
+    if len(first) < len(second):
+        second, first = first, second
     
-    if len(second) < len(first): #Insert a character
-        for i in range(len(second)):
-            if first[i] != second[i]:
-                second = second[:i] + first[i] + second[i:]  
-                return first == second
-        second += first[-1]
-        return first == second
-    elif len(second) > len(first): #Remove a character
-        for i in range(len(first)):
-            if first[i] != second[i]:
-                second = second[:i] + second[i+1:]
-                return first == second
-        second = second[:-1]
-        return first == second    
-    else: #Replace a character
-        for i in range(len(first)):
-            if first[i] != second[i]:
+    for i in range(len(second)):
+        if first[i] != second[i]:
+            if len(first) == len(second):
                 second = second[:i] + first[i] + second[i+1:]
                 return first == second
+            else:
+                second = second[:i] + first[i] + second[i:]  
+                return first == second
+
+    if len(first) == len(second):
         return True
+    else:
+        second += first[-1]
+        return first == second
+
+    # if len(first) == len(second): # Replace a character
+    #     for i in range(len(first)):
+    #         if first[i] != second[i]:
+    #             second = second[:i] + first[i] + second[i+1:]
+    #             return first == second
+    #     return True
+    
+
+
+    # #Insert or Remove a character
+    # for i in range(len(second)):
+    #     if first[i] != second[i]:
+    #         second = second[:i] + first[i] + second[i:]  
+    #         return first == second
+    # second += first[-1]
+    # return first == second
+
+
+
 
 test_cases = [
     # no changes
