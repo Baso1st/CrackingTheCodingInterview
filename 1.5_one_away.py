@@ -6,42 +6,31 @@ def one_away(first, second):
     if abs(len(first) - len(second)) >= 2:
         return False
 
+    found_difference = False
+
+    if len(first) == len(second): # Replace a character
+        for i in range(len(first)):
+            if first[i] != second[i]:
+                if found_difference:
+                    return False
+                found_difference = True
+        return True
 
     if len(first) < len(second):
         second, first = first, second
-    
-    for i in range(len(second)):
-        if first[i] != second[i]:
-            if len(first) == len(second):
-                second = second[:i] + first[i] + second[i+1:]
-                return first == second
-            else:
-                second = second[:i] + first[i] + second[i:]  
-                return first == second
 
-    if len(first) == len(second):
-        return True
-    else:
-        second += first[-1]
-        return first == second
+    firstIndex = secondIndex = 0
 
-    # if len(first) == len(second): # Replace a character
-    #     for i in range(len(first)):
-    #         if first[i] != second[i]:
-    #             second = second[:i] + first[i] + second[i+1:]
-    #             return first == second
-    #     return True
-    
-
-
-    # #Insert or Remove a character
-    # for i in range(len(second)):
-    #     if first[i] != second[i]:
-    #         second = second[:i] + first[i] + second[i:]  
-    #         return first == second
-    # second += first[-1]
-    # return first == second
-
+    while secondIndex < len(second):
+        if first[firstIndex] != second[secondIndex]:
+            if found_difference:
+                return False
+            firstIndex += 1
+            found_difference = True 
+            continue
+        firstIndex += 1
+        secondIndex += 1
+    return True
 
 
 
