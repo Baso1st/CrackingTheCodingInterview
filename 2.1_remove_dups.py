@@ -40,12 +40,12 @@ def remove_dups_iterate_twice(linkedList: DoublyLinkedList):
 ############# TEST_BEGIN ##############
 
 test_cases = (
-    # ([], []),
+    ([], []),
     ([1, 1, 1, 1, 1, 1], [1]),
-    # ([1, 2, 3, 2], [1, 2, 3]),
-    # ([1, 2, 2, 3], [1, 2, 3]),
-    # ([1, 1, 2, 3], [1, 2, 3]),
-    # ([1, 2, 3], [1, 2, 3]),
+    ([1, 2, 3, 2], [1, 2, 3]),
+    ([1, 2, 2, 3], [1, 2, 3]),
+    ([1, 1, 2, 3], [1, 2, 3]),
+    ([1, 2, 3], [1, 2, 3]),
 )
 
 for case in test_cases:
@@ -64,24 +64,4 @@ for case in test_cases:
     if sorted(newList) != sorted(output):
         print(case)
 
-
-# dLinkedList = DoublyLinkedList()
-
-# dLinkedList.add_head('first')
-# dLinkedList.add_head('second')
-# dLinkedList.add_head('third')
-# dLinkedList.add_head('third')
-# dLinkedList.add_head('forth')
-# dLinkedList.add_head('third')
-# dLinkedList.add_head('fifth')
-# dLinkedList.add_head('fifth')
-# dLinkedList.add_head('sixth')
-
-
-# remove_dups_hash(dLinkedList)
-# remove_dups_iterate_twice(dLinkedList)
-
-
-# for node in dLinkedList:
-#     print(node)
 
