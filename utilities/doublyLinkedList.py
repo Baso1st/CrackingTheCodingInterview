@@ -21,12 +21,12 @@ class DoublyLinkedList:
 
     def get_head(self):
         if self._head is not None:
-            return self._head.data
+            return self._head
 
 
     def get_tail(self):
         if self._tail is not None:
-            return self._tail.data
+            return self._tail
 
 
     def add_head(self, data):
