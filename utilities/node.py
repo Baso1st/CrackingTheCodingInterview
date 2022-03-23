@@ -13,3 +13,12 @@ def print_list(head: Node):
         datalist.append(current.data)
         current = current.next
     print(datalist)
+
+def linked_list_from_list(theList):
+    head = Node(theList[0])
+    currentNode = head
+    for t in theList[1:]:
+        currentNode.next = Node(t)
+        currentNode = currentNode.next
+    
+    return head

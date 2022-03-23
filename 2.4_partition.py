@@ -1,6 +1,6 @@
 
 from itertools import count
-from utilities.node import Node, print_list
+from utilities.node import Node, print_list, linked_list_from_list
 
 def partition(head: Node, x):
     """ It partations a LinkedList such that all smaller elements come before the bigger elements
@@ -64,22 +64,19 @@ def partition_better(head: Node, x):
 
 ############# TEST_START ############
 
-# test = [3, 5, 8, 5, 10, 2, 1]
-test = [1, 2, 3, 4, 5, 6, 7, 8]
+test = [3, 5, 8, 5, 10, 2, 1]
+# test = [1, 2, 3, 4, 5, 6, 7, 8]
 # test = [9, 8, 7, 6, 5]
 
-testNode = Node(test[0])
-currentNode = testNode
-for t in test[1:]:
-    currentNode.next = Node(t)
-    currentNode = currentNode.next
+
+head = linked_list_from_list(test)
 
 
-print_list(testNode)
+print_list(head)
 
 # testNode = partition(testNode, 8)
-partition_better(testNode, 5)
+partition_better(head, 5)
 
 print('-' * 50)
 
-print_list(testNode)
+print_list(head)
