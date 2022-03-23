@@ -1,8 +1,5 @@
 
-class Node:
-    def __init__(self, data, next):
-        self.data = data 
-        self.next = next
+from utilities.node import Node, print_list
 
 def delete_middle_node(node: Node):
     """ It deletes the middle node of a LinkedList given only that middle node
@@ -17,12 +14,6 @@ def delete_middle_node(node: Node):
 ############################# TEST_START #############################
 
 firstNode = Node('a', Node('b', Node('c', Node('d', Node('e', None)))))
-
-def print_list(head: Node):
-    current = head
-    while current is not None:
-        print(current.data)
-        current = current.next
 
 thirdNode = firstNode.next.next
 
