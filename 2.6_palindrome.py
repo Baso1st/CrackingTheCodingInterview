@@ -12,7 +12,6 @@ def is_palindrome(head: Node):
     node = head
     tempHead = None
     count = 0
-    oddFound = False
     skipped = False
     while node is not None:
         if count < size // 2:
