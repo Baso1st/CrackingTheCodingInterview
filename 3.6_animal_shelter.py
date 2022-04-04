@@ -1,3 +1,6 @@
+
+### Please note the the book has a more effecient solution to this problem that uses two separate queues and timestamp. 
+
 from utilities.node import Node
 
 class Animal:
