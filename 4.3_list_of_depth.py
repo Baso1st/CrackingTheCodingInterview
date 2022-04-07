@@ -1,5 +1,4 @@
 
-import math
 from utilities.graph import Node, Graph, visit
 
 
@@ -16,8 +15,8 @@ def dfs(node: Node, linkedLists:list, depth = 0):
 
 
 def add_to_linkedList(linkedLists: list, depth: int, node: Node):
-    if linkedLists[depth] is None:
-        linkedLists[depth] = []
+    if len(linkedLists) <= depth:
+        linkedLists.append([])
     linkedLists[depth].append(node)
 
 
@@ -40,9 +39,12 @@ def main():
     graph.add_node(node6, [])
     graph.add_node(node7, [])
 
-    linkedLists = (math.floor(math.log(len(graph.nodes), 2)) + 1) * [None]
+    linkedLists = []
     dfs(node1, linkedLists)
     pass
+    # for list in linkedLists: 
+    #     for node in list:
+    #         print(node.name)
 
 
 if __name__ == '__main__':
