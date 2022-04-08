@@ -1,4 +1,3 @@
-
 import math
 from utilities.graph import visit
 
@@ -20,6 +19,11 @@ def in_order_traversal(node: Node):
 
 
 def is_valid_BST(root: Node):
+    """ It returns true if the Tree is a binary search tree.
+        It doesn't always work if the tree has duplicate values.
+        Time Complexity: O(N)
+        Space Complexity: O(N)
+    """
     previous = -math.inf
     for node in in_order_traversal(root):
         if node.name < previous:
@@ -29,12 +33,24 @@ def is_valid_BST(root: Node):
 
 
 def is_valid_recursive(node: Node, min = -math.inf, max = math.inf):
-    if node.name < min or node.name > max:
+    """ It returns true if the tree is a binary search tree.
+        Time Complexity: O(N)
+        Space Complexity: O(log N) on a balanced tree since we recurse up to the depth of the tree.
+    """
+    if node is None:
+        return True
+    if node.name <= min or node.name > max:
         return False
-    return is_valid_recursive(node.left, -math.inf, node.name) \
-    and is_valid_recursive(node.right, node.name, math.inf)
+    
+    leftResult = is_valid_recursive(node.left, min, node.name)
+    rightResult = is_valid_recursive(node.right, node.name, max)
+
+    return leftResult and rightResult
+
 
 def main():
+    
+    ######################## Case 1 #######################
     node8 = Node(8)
     node3 = Node(3)
     node10 = Node(10)
@@ -55,7 +71,27 @@ def main():
     node14.left = node13
     
     # in_order_traversal(node8)
-    print(is_valid_BST(node8))
+    # print(is_valid_BST(node8))
+    # print(is_valid_recursive(node8))
+
+    ######################## Case 2 #######################
+    root = Node(20)
+    # root.left = Node(20)
+    root.right = Node(20)
+
+    # print(is_valid_BST(root))
+    # print(is_valid_recursive(root))
+
+    ######################## Case 3 #######################
+    root = Node(20)
+    root.left = Node(10)
+    root.left.right = Node(25)
+    root.right = Node(30)
+
+    # print(is_valid_BST(root))
+    print(is_valid_recursive(root))
+
+
 
 if __name__ == '__main__':
     main()
