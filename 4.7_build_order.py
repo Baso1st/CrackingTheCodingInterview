@@ -35,9 +35,15 @@ def dfs(node: Node):
 
 
 def main():
-    projects = ['a', 'b', 'c', 'd', 'e', 'f']
-    dependancies = [('a', 'd'), ('f', 'b'), ('b', 'd'), ('f', 'a'), ('d', 'c')]
+    ###################### Case 1 ######################
+    # projects = ['a', 'b', 'c', 'd', 'e', 'f']
+    # dependancies = [('a', 'd'), ('f', 'b'), ('b', 'd'), ('f', 'a'), ('d', 'c')]
+    # get_project_order(projects, dependancies)
+    ###################### Case 2 ######################
+    projects = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+    dependancies = [('d', 'g'), ('f', 'c'), ('f', 'b'), ('f', 'a'), ('c', 'a'), ('b', 'a'), ('a', 'e'), ('b', 'e')]
     get_project_order(projects, dependancies)
+
 
 
 
