@@ -1,4 +1,4 @@
-from utilities.doublyLinkedList import DoublyLinkedList
+from DataStructureInPython.doublyLinkedList import DoublyLinkedList
 
 ############# IMPLEMENT_BEGIN ##############
 

@@ -1,5 +1,6 @@
 
-from utilities.doublyLinkedList import DoublyLinkedList
+from DataStructureInPython.doublyLinkedList import DoublyLinkedList
+
 
 def kth_to_last(linkedList: DoublyLinkedList, k = 0):
     """ Returns the Kth to the last elemnt of a LinkedList
