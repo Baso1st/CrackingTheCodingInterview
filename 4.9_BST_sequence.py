@@ -35,23 +35,47 @@ def _get_possible_sequences(leftArray: list, rightArray: list):
     validPerms = []
     for perm in perms:
         tempLeft = list((x for x in perm if x in leftArray))
+        if tempLeft != leftArray:
+            continue
         tempRight = list((x for x in perm if x in rightArray))
-        if tempLeft == leftArray and tempRight == rightArray:
-            validPerms.append(list(perm))
+        if tempRight != rightArray:
+            continue
+        validPerms.append(list(perm))
 
     return list(validPerms)
 
 
 
 def main():
-    root = TreeNode(8)
-    root.left = TreeNode(5)
-    root.left.left = TreeNode(1)
-    root.right = TreeNode(9)
-    root.right.right = TreeNode(12)
+    # root = TreeNode(8)
+    # root.left = TreeNode(5)
+    # root.left.left = TreeNode(1)
+    # root.right = TreeNode(9)
+    # root.right.right = TreeNode(12)
+    node50 = TreeNode(50)
+    node20 = TreeNode(20)
+    node60 = TreeNode(60)
+    node10 = TreeNode(10)
+    node25 = TreeNode(25)
+    node70 = TreeNode(70)
+    node5 = TreeNode(5)
+    node15 = TreeNode(15)
+    node65 = TreeNode(65)
+    node80 = TreeNode(80)
     
-    sequences = get_sequences(root)
-    print(sequences)
+    node50.left = node20
+    node50.right = node60
+    node20.left = node10
+    node20.right = node25
+    node60.right = node70
+    node10.left = node5
+    node10.right = node15
+    node70.left = node65
+    node70.right = node80
+
+    sequences = get_sequences(node50)
+    print(len(sequences))
+    # print(len(_get_possible_sequences([1, 2, 3, 4, 5], [11, 12, 13, 14, 15] )))
 
 
 
