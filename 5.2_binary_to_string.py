@@ -1,6 +1,5 @@
 
 
-
 def fraction_to_binary(num, arr: list):
     if len(arr) >= 32:
         # raise Exception('Error')
