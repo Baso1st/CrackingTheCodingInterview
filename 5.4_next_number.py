@@ -84,9 +84,80 @@ def are_there_no_smaller_int(num):
     if math.ceil(n) == math.floor(n):
         return True
 
+
+def get_next_bit_manipulation(num):
+    """
+    The book's solution. Look at the book for detailed explanation. 
+    """
+    c = num 
+    larger = num
+    c0 = 0
+    c1 = 0
+    
+    while (c & 1) == 0 and ( c != 0):
+        c0 += 1
+        c >>= 1
+    
+    while c & 1 == 1:
+        c1 += 1
+        c >>= 1
+    
+    if c0 + c1 == 31 or c0 + c1 == 0 :
+        return -1
+    
+
+    p = c0 + c1
+
+    larger |= (1 << p)
+    larger &= ~((1 << p) -1 )
+    larger |= (1 << (c1 - 1)) - 1
+    
+    print('Num ' + str(num) + ' ' +  format(num, 'b'))
+    print('Larger Num ' + str(larger) + ' ' + format(larger, 'b'))
+
+
+def get_previous_bit_manipulation(num):
+    """
+    The book's solution. Look at the book for detailed explanation. 
+    """
+    c = num
+    c0 = 0
+    c1 = 0
+
+    while c & 1 == 1:
+        c1 += 1
+        c >>= 1
+
+    if c == 0:
+        return -1
+
+    while c & 1 == 0 and c != 0:
+        c0 += 1
+        c >>= 1
+
+    if c1 + c0 == 31 or c0 + c1 == 0:
+        return -1 
+    
+    p = c0 + c1
+
+    smaller = num
+    
+    clearingMask = ~((1 << p + 1) - 1)
+    smaller &= clearingMask # clear the right part of num
+    settingMask = ((1 << c1 + 1) -1 )
+    settingMask <<= (c0 - 1)
+    smaller |= settingMask
+
+    print('Num ' + str(num) + ' ' +  format(num, 'b'))
+    print('Smaller Num ' + str(smaller) + ' ' + format(smaller, 'b'))
+
+
 def main():
-    for num in range(2, 20):
-        get_previous(num)
+    # get_next_bit_manipulation(13948)
+    for num in range(1, 20):
+        # get_next_bit_manipulation(num)
+        get_previous_bit_manipulation(num)
+
 
 
 if __name__ == '__main__':
