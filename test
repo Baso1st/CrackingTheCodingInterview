@@ -1,0 +1,97 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'timeConversion' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts STRING s as parameter.
+#
+
+def flip_matrix(s):
+    newMatrix = []
+    totalSum = 0
+    for i in range(len(s)):
+        newMatrix.append([])
+    
+    for idx, row in enumerate(s):
+        row.sort()
+        row.reverse()        
+        for idx2, val in enumerate(row):
+            newMatrix[idx2].append(val)
+    
+    for row in newMatrix:
+        row.sort()
+        row.reverse()
+
+    for i in range( int(len(newMatrix) / 2)):
+         row = newMatrix[i]
+         for j in range(int(len(row) / 2)):
+             totalSum += row[j]      
+
+    print(totalSum)
+
+if __name__ == '__main__':
+    # fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    # s = input()
+
+    result = flip_matrix([[2, 5, 7, 4], [5, 8, 2, 6], [1, 2, 3, 4], [4, 5, 6, 7]])
+
+    # fptr.write(result + '\n')
+
+    # fptr.close()
+
+
+    #########################
+
+    arr.sort()
+    medianIdx = math.floor(len(arr) / 2)
+    return arr[medianIdx]
+#################################
+
+    newMatrix = []
+    totalSum = 0
+    for i in range(len(matrix)):
+        newMatrix.append([])
+    
+    for idx, row in enumerate(matrix):
+        row.sort()
+        row.reverse()        
+        for idx2, val in enumerate(row):
+            newMatrix[idx2].append(val)
+    
+    for row in newMatrix:
+        row.sort()
+        row.reverse()
+    
+    print(matrix)
+    print(newMatrix)
+
+    for i in range(int(len(newMatrix) / 2)):
+         row = newMatrix[i]
+         for j in range(int(len(row) / 2)):
+             totalSum += row[j]
+
+    return totalSum
+
+
+
+
+
+    ##################################
+
+        newArr = []
+    for row in matrix:
+        for val in row:
+            newArr.append(val)
+        
+    newArr.sort()
+    newArr.reverse()
+    totalSum = sum(newArr[:int(len(newArr) / 2)])
+    return totalSum
